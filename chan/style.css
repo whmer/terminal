@@ -1,0 +1,98 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+:root{
+    --sam:"SF Pro Text", "SF Pro Icons", system, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande", "Ubuntu", "Cantarell", "Fira Sans", sans-serif;
+    --color-whats: #a333e4;
+    --hazap:hazap;
+}
+body{
+    font-family: var(--sam);
+    font-size: 20px;
+}
+.login{
+    text-align: center;
+    background: #202020;
+    width: 470px;
+    margin: 0 auto 10px;
+    padding: 10px;
+}
+@media(max-width:999px){
+    .login{
+        width: 80%;
+        margin-top: 40px;
+    }
+}
+.inty{
+    width: 100%;
+    background: #111111;
+    margin: 10px;
+    border-radius: 3px;
+}
+
+#message-input{
+    padding: 10px;
+    width: 100%;
+    border: none;
+    font-family: var(--sam);
+    color: #fff;
+    background: transparent;
+    outline: none;
+    font-size: 17px;
+}
+#hacker{
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+#message-form{
+    display: flex;
+    background-color: #202020;
+    justify-content: space-between;
+}
+
+.color-form{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.ping{
+    position: fixed;
+    top: 0;
+    left: 10px;
+}
+.pi{font-size: 15px;}
+
+#name-input{
+    padding: 10px;
+    font-family: var(--sam);
+    background: #111111;
+    border: none;
+    outline: none;
+    color: #fff;
+    width: 80%;
+    font-size: 17px;
+    border-radius: 3px;
+}
+
+.log--login{
+    font-size: 17px;
+    font-family: var(--sam);
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    margin-top: 20px;
+    width: 80%;
+    background: var(--color-whats);
+}
+
+.log{
+    font-weight: 500;
+    font-size: 15px;
+    color: #807e7e;
+}
