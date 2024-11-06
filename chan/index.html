@@ -72,6 +72,7 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
     background: #000;
     border-top: 1px solid #303030e1;
     z-index: 5;
+    display: none;
 }
 
 @media(max-width:999px){
@@ -174,9 +175,15 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
     <br><br><br>
   <div class="login">
     <br>
-    <h2 class="logh2">Login</h2>
-    <div class="pain">
-      <h2 class="log">Crete Username!</h2><br>
+    <div class="usernIanalogin" style="display: flex; justify-content: center;">
+      <div class="phisher-webp">
+        <img src="./STK-20241014-WA0049.webp" style="background: transparent; border: none; width:80px; padding: 0px;"/>
+      </div>
+      <div class="pain" style="margin-top: 25px; margin-left: 10px; text-align: left;">
+        <h2 class="logh2">Login</h2>
+        <h2 class="log">Crete Username!</h2><br>
+      </div>
+    </div>
       <form class="login--form" id="loginHform">
       <input type="text" id="name-input" name="username" placeholder="Username" onfocus="this.placeholder=''" onblur="this.placeholder='Username'" required/>
       <div class="divview">
@@ -228,8 +235,9 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
         if (data.success) {
           document.querySelector('.color-form').style.display = 'block';
           document.getElementById('chat-box').style.display = 'block';
-          document.querySelector(".login").style.display = "none"
-          document.querySelector('.usersLogin').style.display = "block"
+          document.querySelector(".login").style.display = "none";
+          document.querySelector('.usersLogin').style.display = "block";
+          document.querySelector('.color-formu').style.display = "block";
             //window.location.replace('../server/'); 
         } else {  
            erro_p();
