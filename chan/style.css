@@ -96,3 +96,78 @@ body{
     font-size: 15px;
     color: #807e7e;
 }
+
+.usersLogin{
+    background-color: #1d1d1de0;
+    width: 370px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 0 0 rgba(0, 0, 0, .25);
+    z-index: 0;
+}
+
+@media(max-width:999px){
+    .usersLogin{
+        background-color: #1d1d1db9;
+        width: 370px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: -470px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 0 0 rgba(0, 0, 0, .25);
+        z-index: 5;
+    }
+}
+
+.uploadGfilerimage{
+    margin: 10px;
+}
+
+.iamgehatsunee{
+    width: 97%;
+    margin: 0 auto 10px;
+}
+.hadddsune{width: 100%; border:none; background: none;}
+.admindreqxy{width: 90px;
+    margin-top: -55px;
+    margin-left: 20px;
+    background: #333333;
+border: none;}
+.dflexUsername{display: flex; width: 100%; border-bottom: 5px solid #000000; padding-bottom: 40px;}
+.userNameId{margin-top: -15px; margin-left: 5px;}
+.divc{
+    background: #fff;
+    height: 5px;
+    border-radius: 4px;
+    width: 40px;
+    margin-top: 7px;
+}
+
+.divhomer{
+    margin-left: 20px;
+    display: none;
+}
+.ping{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    border-bottom: 1px solid #303030e1;
+    height: 5vh;
+    display: flex;
+    justify-content: left;
+}
+.pipi{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+@media(max-width:999px){
+    .divhomer{
+        display: inline;
+    }
+}

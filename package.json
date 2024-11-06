@@ -1,17 +1,21 @@
 {
-  "name": "terminal",
+  "name": "source_hazap",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "node --watch index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author": "seiba",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
-    "chalk": "^5.3.0",
-    "dotenv": "^16.4.4",
-    "ws": "^8.16.0"
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "node-fetch": "^3.3.2",
+    "path": "^0.12.7",
+    "socket.io": "^4.7.5"
   }
 }

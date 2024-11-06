@@ -1,62 +1,113 @@
-const WebSocket = require('ws');
-const http = require('http');
-const fs = require('fs');
+const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
+const session = require('express-session');
+const fs = require('fs');
+const http = require('http');
+const { Server } = require('socket.io');
 
-let activeConnections = 0;
+const app = express();
+const port = 8080;
 
-const server = http.createServer((req, res) => {
-    if (req.method === 'GET' && req.url === '/') {
-        // Caminho completo para o arquivo index.html dentro da pasta chan
-        const filePath = path.join(__dirname, 'chan', 'index.html');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-        // Lê o arquivo index.html
-        fs.readFile(filePath, (err, data) => {
-            if (err) {
-                res.writeHead(500, { 'Content-Type': 'text/plain' });
-                res.end('Erro ao carregar o arquivo index.html');
-                return;
-            }
 
-            // Define o cabeçalho para HTML e responde com o conteúdo do index.html
-            res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.end(data);
-        });
+app.use(session({
+    secret: 'your-secret-key', 
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } 
+}));
+
+
+app.use('/chan', express.static(path.join(__dirname, 'chan')));
+app.use(express.static(path.join(__dirname, 'chan')));
+
+
+app.use('/server', (req, res, next) => {
+    if (req.session.userId) {
+        next(); 
     } else {
-        res.writeHead(404, { 'Content-Type': 'text/plain' });
-        res.end('Página não encontrada');
+        res.redirect('/chan');
+    }
+}, express.static(path.join(__dirname, 'server')));
+
+
+function getUsers() {
+    const filePath = path.join(__dirname, 'data', 'form-data.json');
+    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+}
+
+
+app.post('/chan', (req, res) => {
+    const { password } = req.body;
+    const users = getUsers();
+    const user = users.find(u => u.password === password);
+    //const user = users.find(u => u.username === username && u.password === password);
+
+    if (user) {
+        req.session.userId = user.id;
+        res.json({ success: true, id: user.id });
+    } else {
+        res.json({ success: false });
     }
 });
 
-const wss = new WebSocket.Server({ server });
 
-wss.on('connection', (ws) => {
-    console.log('[-] Novo usuário conectado !');
+app.post('/save-form', (req, res) => {
+    console.log("Receiving form data");
+    const formData = req.body;
+    console.log("Data received:", formData);
 
+    const filePath = path.join(__dirname, 'data', 'form-data.json');
+
+    
+    fs.mkdirSync(path.dirname(filePath), { recursive: true });
+
+    
+    let data = [];
+    if (fs.existsSync(filePath)) {
+        data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    }
+
+    
+    formData.id = generateId();
+    data.push(formData);
+
+    
+    fs.writeFile(filePath, JSON.stringify(data, null, 2), (err) => {
+        if (err) {
+            console.error('Error saving data:', err);
+            return res.status(500).json({ success: false, message: 'Error saving data:' });
+        }
+        console.log("Data saved successfully, ID generated:", formData.id);
+        
+        res.json({ success: true, id: formData.id });
+    }); 
+});
+
+
+function generateId() {
+    return Math.floor(1000000 + Math.random() * 9000000);
+}
+
+
+const server = http.createServer(app);
+const io = new Server(server);
+
+let activeConnections = 0;
+
+io.on('connection', (socket) => {
     activeConnections++;
+    io.emit('activeConnections', activeConnections);
 
-    ws.on('close', () => {
+    socket.on('disconnect', () => {
         activeConnections--;
-    });
-
-    ws.on("message", (data) => {
-        wss.clients.forEach((client) => client.send(data.toString()));
-        wss.clients.forEach((client) => {
-            if (client.readyState === WebSocket.OPEN) {
-              client.send(data);
-            }
-          });
-    });
-  
-    ws.on('message', (message) => {
-        wss.clients.forEach((client) => {
-            if (client !== ws && client.readyState === WebSocket.OPEN) {
-                client.send(message);
-            }
-        });
+        io.emit('activeConnections', activeConnections);
     });
 });
 
-server.listen(3000, () => {
-    console.log('\nServidor WebSocket está ouvindo em: ws://localhost:3000\n');
+server.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
 });

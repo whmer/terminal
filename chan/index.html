@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conversa em Tempo Real</title>
+  <link rel="stylesheet" href="style.css">
+  <title>Chan iana</title>
 </head>
 <style>
   *{margin:0;padding:0;box-sizing: border-box;}
@@ -26,6 +27,10 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
     border-radius: 3px;
 }
 
+.uploadFFimage{
+  display: none;
+}
+
 #message-input{
     padding: 10px;
     width: 100%;
@@ -45,8 +50,39 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
     display: flex;
     background-color: #202020;
     justify-content: space-between;
+    z-index: 5;
 }
 
+.color-form{
+    position: fixed;
+    bottom: 0;
+    left: 20%;
+    right: 20%;
+    display: none;
+    background: #000;
+    border-top: 1px solid #303030e1;
+    z-index: 5;
+}
+
+.color-formu{
+  position: fixed;
+    top: 0;
+    left: 25%;
+    right: 20%;
+    background: #000;
+    border-top: 1px solid #303030e1;
+    z-index: 5;
+}
+
+@media(max-width:999px){
+  .color-formu{
+    position: fixed;
+    justify-content: left;
+    left: 0;
+    right: 0;
+    background: #000;
+    z-index: 10;
+}
 .color-form{
     position: fixed;
     bottom: 0;
@@ -55,6 +91,8 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
     display: none;
     background: #000;
     border-top: 1px solid #303030e1;
+    z-index: 1;
+}
 }
 
 .message{
@@ -63,51 +101,164 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
   white-space: normal;
 }
 
+.message{margin-top: 20px; margin-left: 20%;}
+
 @media(max-width:999px){
   .message{
     width: 70%;
   }
+  .message{
+    margin-left: 10px;
+  }
 }
 
-.ping{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #000;
-    border-bottom: 1px solid #303030e1;
-    height: 4vh;
-}
+
 .pi{font-size: 15px;}
 
-#name-input{padding: 10px;font-family: var(--sam);background: #111111;border: none;outline: none;color: #fff;width: 80%;font-size: 17px;border-radius: 3px;
+#name-input, #Senha{padding: 10px;font-family: var(--sam);background: #111111;border: none;outline: none;color: #fff;width: 80%;font-size: 17px;border-radius: 3px;
 }
 .log--login{font-size: 17px;font-family: var(--sam);font-weight: 600;padding: 10px; border-radius: 3px;border: none;margin-top: 20px;width: 80%;background: var(--color-whats);
 }
-.message{margin-top: 20px}
 .log{font-weight: 500;font-size: 15px;color: #807e7e;
 }
 #chat-box{
   display: none;
   margin: 20px;
 }
+.divview{width: 90%; text-align: right;}
 .ionicon{width: 40px;}
 .uplogf{position: fixed; right:0;
   bottom: 0;}
+
+  .divErrorI{
+    display: none;
+  }
+  .uploadFFimage{
+    display: none;
+  }
+  .usersLogin{display:none;}
 </style>
 <body>
+  <div class="usersLogin">
+    <div class="iamgehatsunee">
+      <br>
+      <img src="./a5c1df36ac5e6760fcc080d05cd422de.jpg" class="hadddsune" width="100%"/><br>
+      <div class="dflexUsername">
+      <div class="usernameDreqxy">
+        <img src="./image_search_1641509359235.jpg" class="admindreqxy" style="border-radius: 100%;"/>
+      </div>
+      <div class="userNameId">
+        <span id="usernamegg"></span><br>
+        <i style="font-size: 12px; color: #807e7e;" id="usernameid">ID:</i>
+      </div>     
+      </div>
+  
+    </div>
+    <div class="uploadGfilerimage">
+      <div class="hTYfierer-image">
+        <h4>chan iana :</h4>
+        <i style="font-size: 14px; color: #807e7e;">
+          "name": "chan iana",<br>
+          "version": "1.0.0",<br>
+          "description": "call when you fall apart",<br>
+          "author": "whmer - sam",<br>
+          "creator": ""<br>
+          "license": "ISC",<br>
+        </i>
+      </div><br>
+    </div>
+    <div class="usersjson"></div>
+  </div>
+  <div class="messagechang">
   <div class="content-container">
     <br><br><br>
   <div class="login">
     <br>
-    <h2 class="logh2">Login - in</h2>
+    <h2 class="logh2">Login</h2>
     <div class="pain">
       <h2 class="log">Crete Username!</h2><br>
-      <form class="login--form">
-      <input type="text" id="name-input" placeholder="Username" onfocus="this.placeholder=''" onblur="this.placeholder='Username'" required/>
-      <!--input type="password" id="pass-input" placeholder="Password" onfocus="this.placeholder=''" onblur="this.placeholder='Password'" required/-->
+      <form class="login--form" id="loginHform">
+      <input type="text" id="name-input" name="username" placeholder="Username" onfocus="this.placeholder=''" onblur="this.placeholder='Username'" required/>
+      <div class="divview">
+        <b id="clickB" style=" font-size: 15px; font-weight: 600; text-decoration:underline; cursor: pointer; margin: 10px;">Show</b>
+    </div>
+    <input type="password" placeholder="Password" name="password" id="Senha" onblur='this.placeholder="Password"' onfocus='this.placeholder=""' required/>
+    <br>
+    <div class="divErrorI" id="divErrorI">
+        <i style="font-size: 10px; color: red;">Erro! try again</i>
+    </div>
+    <script>
+      document.getElementById('clickB').addEventListener('click', function(){
+        var passwordInput = document.getElementById("Senha");
+        const clickB = document.getElementById('clickB');
+        //const icon = document.querySelector('#view-icon ion-icon');
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            clickB.innerText = "Hide";
+            //icon.name = 'eye-outline';
+          } else {
+              passwordInput.type = "password";
+              clickB.innerText = "Show";
+            //icon.name = 'eye-off-outline';
+        }                    
+      })
+
+  
+    </script>
       <br>
-      <button type="submit" class="log--login" onclick="Hacker()">Login</button>
+      <button type="submit" id="loglog" class="log--login" onclick="Hacker()">Login</button>
+      <script>
+        document.getElementById('loginHform').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const formObject = {};
+    formData.forEach((value, key) => {
+        formObject[key] = value;
+    });
+
+    fetch('/chan', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formObject)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+          document.querySelector('.color-form').style.display = 'block';
+          document.getElementById('chat-box').style.display = 'block';
+          document.querySelector(".login").style.display = "none"
+          document.querySelector('.usersLogin').style.display = "block"
+            //window.location.replace('../server/'); 
+        } else {  
+           erro_p();
+           limparInputs(); 
+        }
+
+        function erro_p(){
+            document.getElementById('divErrorI').style.display = "block";
+            //document.getElementById('divErrorI23').style.display = "block";
+            time();
+        }
+        function remover_p(){
+            document.getElementById('divErrorI').style.display = "none";
+            //document.getElementById('divErrorI23').style.display = "none";
+          }
+
+    function limparInputs() {
+        document.querySelectorAll('#loginHform input').forEach(input => input.value = '');
+    }
+
+    function time(){
+      var tempoEspera = 4000; 
+      setTimeout(remover_p, tempoEspera);}
+    })
+    .catch(error => {
+        console.error('Erro ao autenticar:', error);
+    });
+});
+      </script>
       <br><br>
       </form>
     </div>
@@ -115,276 +266,272 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
   <section class="chat">
   </section>
     <section class="message">
-    <div id="chat-box"></div>
+    <div id="chat-box"></div>  
+    <div id="messages-container"></div>
   </section>
   <br><br><br>
     <div class="color-form">
-      <div class="name-hacker">
+      <div class="fileschan">
+        <style>
+          .fileschan{
+            display: flex;
+            justify-content: space-between;
+          }
+          .backCdf{
+            position: fixed;
+            top: 0;
+            text-align: center;
+            left: 0;
+            right: 0;
+            height: 100vh;
+            background-color: #080808d7;
+            display: none;
+          }
+          .preview{
+            display:none;
+            width: 470px;
+          }
+          .resultsFilerSelect{
+            margin-top: 10%;
+            width: 570px;
+            margin: 0px auto 10px;
+          }
+
+          @media(max-width:999px){
+            .resultsFilerSelect{
+              width: 80%;
+            }
+          }
+          .sendFig{
+            width: 70%;
+            padding: 8px;
+          }
+        </style>
+          <div class="name-hacker">
         <span id="hacker"></span>
         </div>
+      </div>
         <form id="message-form">
           <div class="inty">
             <input type="text" id="message-input" placeholder="Message" required onfocus="this.placeholder=''" onblur="this.placeholder='Message'" required>
           </div>
             <button type="submit" class="sed"><span><svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M470.3 271.15L43.16 447.31a7.83 7.83 0 01-11.16-7V327a8 8 0 016.51-7.86l247.62-47c17.36-3.29 17.36-28.15 0-31.44l-247.63-47a8 8 0 01-6.5-7.85V72.59c0-5.74 5.88-10.26 11.16-8L470.3 241.76a16 16 0 010 29.39z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg></span>Sender</button>
+            <audio id="sound" src="./spacebar-click-keyboard-199448.mp3"></audio>
+         <script>
+            const enterbot = document.querySelector('.sed');
+const sound = document.getElementById('sound');
+
+enterbot.addEventListener('click', () =>{
+    sound.play();
+})
+          </script>
           </form>
-    <div class="ping">
-      <p class="pi">The internet signal is: <span id="signalStrength">Checking...</span></p>
-    </div>
   </div>
 </div>
-  </section>
-  <!--div class="select">
-    <label for="uploadImage" class="upload-image">
-      <h4>upload</h4>
-        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><rect x="48" y="80" width="416" height="352" rx="48" ry="48" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><circle cx="336" cy="176" r="32" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><path d="M304 335.79l-90.66-90.49a32 32 0 00-43.87-1.3L48 352M224 432l123.34-123.34a32 32 0 0143.11-2L464 368" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
-      <!--img src="path/to/your/upload-button-image.png" alt="Upload de Imagem">
-      <input type="file" id="fileInput" accept="image/*,video/*">
-    </label>
-      <input type="file" id="image" name="image" accept="image/*" required>
-      <button onclick="sendFile()">Enviar para todos</button>
-  </div-->
-  <!--img id="preview" src="" alt="Pré-visualização da Imagem" style="display: none;">
-<div id="mediaContainer"></div-->
-<br>
-<br>
-<script>
-const socket = new WebSocket('ws://localhost:3000');
-
-socket.onopen = () => {
-  console.log('Conectado ao servidor WebSocket');
-};
-
-async function sendFile() {
-  const fileInput = document.getElementById('fileInput');
-  const usernameInput = document.getElementById('name-input');
-  const file = fileInput.files[0];
-  const sender = usernameInput.value || "Anônimo";
-
-  if (!file) {
-    alert('Selecione um arquivo primeiro.');
-    return;
-  }
-
-  const arrayBuffer = await file.arrayBuffer();
-  const data = {
-    sender: sender,
-    file: arrayBuffer,
-    fileType: file.type,
-  };
-
-  socket.send(JSON.stringify(data)); // Envia os dados para o servidor
-  fileInput.value = ''; // Limpa o campo de seleção de arquivo
-}
-
-socket.onmessage = (event) => {
-  const mediaContainer = document.getElementById('mediaContainer');
-  const data = JSON.parse(event.data);
-
-  if (data.sender && data.file) {
-    // Converte o ArrayBuffer para um Blob e exibe o arquivo
-    const blob = new Blob([new Uint8Array(data.file.data)], { type: data.fileType });
-    const url = URL.createObjectURL(blob);
-
-    // Cria elementos de mídia com o nome do remetente e data/hora
-    const mediaElement = data.fileType.startsWith('video')
-      ? document.createElement('video')
-      : document.createElement('img');
-
-    mediaElement.src = url;
-    mediaElement.controls = true;
-    mediaElement.style.maxWidth = '100%';
-
-    displayReceivedMessage(data.sender, mediaElement);
-  }
-};
-
-// Função para exibir a mídia recebida com remetente e data/hora
-function displayReceivedMessage(sender, mediaElement) {
-  const now = new Date();
-  const options = { hour: '2-digit', minute: '2-digit', hour12: false };
-  const formattedDateTime = now.toLocaleDateString('en-US', options);
-  const timeTag = `<strong style="font-size:12px; color:#807e7e;">${formattedDateTime}</strong>`;
-
-  const receivedMessageDiv = document.createElement('div');
-  receivedMessageDiv.innerHTML = `<strong style="font-size:15px;">${sender} ${timeTag}<br></strong>`;
-  receivedMessageDiv.appendChild(mediaElement); // Adiciona a imagem/vídeo
-  mediaContainer.appendChild(receivedMessageDiv);
-}
-
-</script>
-</div>
+<div class="color-formu">
+  <div class="ping">
+    <div class="divhomer">
+      <div class="divc"></div>
+      <div class="divc"></div>
+      <div class="divc"></div>
+    </div>
+    <div class="pipi">
+      <p class="pi">The internet signal is: <span id="signalStrength">Checking...</span></p>
+    </div>
     <script>
-      const ws = new WebSocket('ws://localhost:3000');
-      const login = document.querySelector(".login");
-      const chat = document.querySelector(".chat");
-      const loginForm = login.querySelector(".login--form");
-      const nameInput = document.getElementById('name-input');
-      const haCker = document.getElementById('hacker');
-      const messageInput = document.getElementById('message-input');
-      const messageForm = document.getElementById('message-form');
-      const chatBox = document.getElementById('chat-box');
-      let userName = ''; // Nome do usuário
+      document.querySelector('.divhomer').addEventListener('click', function(){
+        var usersLoginHome = document.querySelector('.usersLogin');
+      if(usersLoginHome.style.left == '-470px' || usersLoginHome.style.left == ''){
+        usersLoginHome.style.left = "0px";
+      } else {
+        usersLoginHome.style.left = "-470px";
+      }
+      })
+    </script>
+  </div>
+  </div>
+  </section>
+<br>
+<br>
+    <script>
+  const ws = new WebSocket('ws://localhost:3000');
+const login = document.querySelector(".login");
+const chat = document.querySelector(".chat");
+const loginForm = login.querySelector(".login--form");
+const nameInput = document.getElementById('name-input');
+const haCker = document.getElementById('hacker');
+const messageInput = document.getElementById('message-input');
+const messageForm = document.getElementById('message-form');
+const chatBox = document.getElementById('chat-box');
+const uploadImageInput = document.getElementById("selectimage");
+const sendImageForm = document.getElementById("sendFilerT");
+const messagesContainer = document.getElementById("messages-container");
+let userName = ''; // Nome do usuário
 
-      function Hacker() {
-  var nome = document.getElementById('name-input').value;
-  const user = document.getElementById('name-input');
-  document.getElementById('hacker').innerText = "user : " + nome;
+function Hacker() {
+var nome = document.getElementById('name-input').value;
+const user = document.getElementById('name-input');
+document.getElementById('hacker').innerText = "user : " + nome;
 
-  if(user.value.trim() !== ''){
-    document.querySelector('.color-form').style.display = 'block';
-    document.getElementById('chat-box').style.display = 'block';
-  }
+if(user.value.trim() !== ''){
+
+}
 }1 
-      const user = { id: "", name: "" }
+const user = { id: "", name: "" }
 
-      ws.onopen = () => {
-        console.log('Connection established with the server.');
-        console.log(user)
-      };
+ws.onopen = () => {
+  console.log('Connection established with the server.');
+  console.log(user)
+};
 
-      const SCroll = () => {
-  const scrollableDiv = document.getElementById("chat-box");
+const SCroll = () => {
+const scrollableDiv = document.getElementById("chat-box");
+window.scrollTo({
+top: scrollableDiv.scrollHeight,
+behavior: "smooth"
+});
+};
+
+
+const SCroll3 = () => {
   window.scrollTo({
-    top: scrollableDiv.scrollHeight,
+    //top: document.body.scrollHeight,
+    top: document.documentElement.scrollHeight,
     behavior: "smooth"
   });
 };
 
+ws.onmessage = (event) => {
+  handleReceivedMessage(event.data);
+};
 
-      const SCroll3 = () => {
-        window.scrollTo({
-          //top: document.body.scrollHeight,
-          top: document.documentElement.scrollHeight,
-          behavior: "smooth"
-        });
-      };
-
-      ws.onmessage = (event) => {
-        handleReceivedMessage(event.data);
-      };
-
-      function handleReceivedMessage(data) {
-        try {
-          const messageData = JSON.parse(data);
-          displayReceivedMessage(messageData.sender, messageData.message);
-        } catch (error) {
-          console.error('Error processing received data:', error);
-        }
-      }
-
-      ws.onclose = (event) => {
-        if (event.wasClean) {
-          console.log('Conexão fechada limpa.');
-        } else {
-          console.error('Conexão interrompida.'); 
-        }
-      };
-
-      function displayReceivedMessage(sender, message) {
-        const now = new Date();
-              const options = {
-                  hour: '2-digit',
-                  minute: '2-digit',
-                  //second: '2-digit',
-                  hour12 : false
-              };
-              const formattedDateTime = now.toLocaleDateString('en-US', options);
-              const wer = `<strong style="font-size:12px; color:#807e7e;">${formattedDateTime}</strong>`
-
-        const receivedMessageDiv = document.createElement('div');
-        receivedMessageDiv.innerHTML = ` 
-        <strong style="font-size:15px;">${sender} ${wer}<br></strong>${formatMessage(message)}<br>`;
-        chatBox.appendChild(receivedMessageDiv);
-      }
-
-      function formatMessage(message) {
-  // Verifica se a mensagem contém um link
-  const linkRegex = /https?:\/\/\S+/;
-  if (linkRegex.test(message)) {
-    // Se a mensagem contém um link, aplica um estilo diferente para o link
-    return message.replace(linkRegex, '<a href="$&" style="color: #ff0000;" target="_blank">$&</a>');
-  } else {
-    return message;
+function handleReceivedMessage(data){
+  try {
+    const messageData = JSON.parse(data);
+    displayReceivedMessage(messageData.sender, messageData.message);
+  } catch (error) {
+    console.error('Error processing received data:', error);
   }
 }
-messageForm.addEventListener('submit', (event) => {
-  event.preventDefault();
 
-  userName = nameInput.value || 'Anônimo';
+ws.onclose = (event) => {
+  if (event.wasClean) {
+    console.log('Conexão fechada limpa.');
+  } else {
+    console.error('Conexão interrompida.'); 
+  }
+};
 
-  const message = messageInput.value;
-  ws.send(JSON.stringify({ sender: userName, message: message }));
+function displayReceivedMessage(sender, message) {
+  const now = new Date();
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            //second: '2-digit',
+            hour12 : false
+        };
+        const formattedDateTime = now.toLocaleDateString('en-US', options);
+        const wer = `<strong style="font-size:12px; color:#807e7e;">${formattedDateTime}</strong>`
 
-  displaySentMessage(message);
+  const receivedMessageDiv = document.createElement('div');
+  receivedMessageDiv.innerHTML = ` 
+  <strong style="font-size:15px;">${sender} ${wer}<br></strong>${formatMessage(message)}<br>`;
+  chatBox.appendChild(receivedMessageDiv);
+}
 
-  messageInput.value = ''; // Limpa o campo de entrada após o envio da mensagem
-  document.querySelector(".name-input").style.display = "none"
-});
-
+// image ---------------------------
 
 // teste ---------------------------
 
+function formatMessage(message) {
+// Verifica se a mensagem contém um link
+const linkRegex = /https?:\/\/\S+/;
+if (linkRegex.test(message)) {
+// Se a mensagem contém um link, aplica um estilo diferente para o link
+return message.replace(linkRegex, '<a href="$&" style="color: #ff0000;" target="_blank">$&</a>');
+} else {
+return message;
+}
+}
+messageForm.addEventListener('submit', (event) => {
+event.preventDefault();
+
+userName = nameInput.value || 'Anônimo';
+
+const message = messageInput.value;
+ws.send(JSON.stringify({ sender: userName, message: message }));
+
+displaySentMessage(message);
+
+messageInput.value = ''; // Limpa o campo de entrada após o envio da mensagem
+document.querySelector(".name-input").style.display = "none"
+});
+
 const sendMessage = (event) => {
-    event.preventDefault()
+event.preventDefault()
 
-    const message = {
-        userId: user.id,
-        userName: user.name,
-        content: messageInput.value
-    }
-    //websocket.send(JSON.stringify(message))
+const message = {
+  userId: user.id,
+  userName: user.name,
+  content: messageInput.value
+}
+//websocket.send(JSON.stringify(message))
 
-    messageInput.value = ""
-    SCroll();
-  }
+messageInput.value = ""
+SCroll();
+}
 
 const handleSubmit = (event) => {
-    event.preventDefault()
+event.preventDefault()
 
-    user.id = crypto.randomUUID()
-    user.name = nameInput.value
+user.id = crypto.randomUUID()
+user.name = nameInput.value
+const usernamegg = document.getElementById('usernamegg');
+const usernameid = document.getElementById('usernameid');
+usernamegg.innerText = user.name;
+usernameid.innerText = user.id;
 
-    document.querySelector(".login").style.display = "none"
-    document.querySelector(".chat").style.display = "flex"
+//document.querySelector(".login").style.display = "none"
+document.querySelector(".chat").style.display = "flex"
 
-    //websocket = new WebSocket("ws://localhost:8080")
-    //websocket.onmessage = processMessage
+//websocket = new WebSocket("ws://localhost:8080")
+//websocket.onmessage = processMessage
 }
 
 const hacker = (event) => {
-  sender = { nameInput }
+sender = { nameInput }
 hacker.innerHTML = `<strong>${sender}:</strong>`;
 console.log(`Hello ${sender}`)
 }
 
 function checkInternetConnection() {
-          fetch('https://www.google.com')
-            .then(response => {
-              if (response.ok) {
-                document.getElementById('signalStrength').textContent = 'Good';
-                document.getElementById('signalStrength').style.color = 'green';
-              } else {
-                document.getElementById('signalStrength').textContent = 'Bad';
-                document.getElementById('signalStrength').style.color = 'red';
-              }
-            })
-            .catch(error => {
-              document.getElementById('signalStrength').textContent = 'Bad';
-              document.getElementById('signalStrength').style.color = 'red';
-            });
+    fetch('https://www.google.com')
+      .then(response => {
+        if (response.ok) {
+          document.getElementById('signalStrength').textContent = 'Good';
+          document.getElementById('signalStrength').style.color = 'green';
+        } else {
+          document.getElementById('signalStrength').textContent = 'Bad';
+          document.getElementById('signalStrength').style.color = 'red';
         }
-    
-        // Verifica a conexão inicialmente
-        checkInternetConnection();
-    
-        // Verifica a conexão a cada 5 segundos
-        setInterval(checkInternetConnection, 5000);
+      })
+      .catch(error => {
+        document.getElementById('signalStrength').textContent = 'Bad';
+        document.getElementById('signalStrength').style.color = 'red';
+      });
+  }
+
+  // Verifica a conexão inicialmente
+  checkInternetConnection();
+
+  // Verifica a conexão a cada 5 segundos
+  setInterval(checkInternetConnection, 5000);
 
 loginForm.addEventListener("submit", handleSubmit)
 messageForm.addEventListener("submit", sendMessage )
 
-    </script>
+
+</script>
     <style>
 
 :root{
@@ -528,5 +675,6 @@ messageForm.addEventListener("submit", sendMessage )
   }
 
     </style>
+    </div>
 </body>
 </html>
