@@ -14,7 +14,7 @@
     --hazap:hazap;
 }
 body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
-.login{text-align: center;background: #202020;width: 470px;margin: 0 auto 10px;padding: 10px;}
+.login{text-align: center;background: transparent;width: 470px;margin: 0 auto 10px;padding: 10px;}
 @media(max-width:999px){
     .login{
         width: 80%;
@@ -118,7 +118,7 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
 
 #name-input, #Senha{padding: 10px;font-family: var(--sam);background: #111111;border: none;outline: none;color: #fff;width: 80%;font-size: 17px;border-radius: 3px;
 }
-.log--login{font-size: 17px;font-family: var(--sam);font-weight: 600;padding: 10px; border-radius: 3px;border: none;margin-top: 20px;width: 80%;background: var(--color-whats);
+.log--login{font-size: 17px; cursor:pointer; font-family: var(--sam);font-weight: 600;padding: 10px; border-radius: 3px;border: none;margin-top: 20px;width: 80%;background: var(--color-whats);
 }
 .log{font-weight: 500;font-size: 15px;color: #807e7e;
 }
@@ -179,21 +179,41 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
         <img src="./STK-20241014-WA0049.webp" style="background: transparent; border: none; width:80px; padding: 0px;"/>
       </div>
       <div class="pain" style="margin-top: 25px; margin-left: 10px; text-align: left;">
-        <h2 class="logh2">Sign in</h2>
-        <h2 class="log">Crete Username!</h2><br>
+        <h2 class="logh2">iana</h2>
+        <h2 class="log">version: 1.0.0</h2>
       </div>
     </div>
-    <br>
+    <div class="flesusert">
+      <style>
+        .flesusert{
+          text-align: left;
+          width: 80%;
+          margin: 0 auto 10px;
+        }
+        #name-input, #Senha{
+          caret-color: #a333e4;
+          border: 2px solid #292929;
+          transition: 0.5s;
+        }
+        #name-input::selection, #Senha::selection{
+          color: #a333e4;
+        }
+        #name-input:hover, #Senha:hover{
+          border: 2px solid #a333e4;
+        }
+        #name-input:focus, #Senha:focus{
+          border: 2px solid #a333e4;
+          transition: 0.5s;
+        }
+      </style>
+      <h2 class="log">Create Username!</h2>
+    </div>
       <form class="login--form" id="loginHform">
       <input type="text" id="name-input" name="username" placeholder="Username" onfocus="this.placeholder=''" onblur="this.placeholder='Username'" required/>
       <div class="divview">
         <b id="clickB" style=" font-size: 15px; font-weight: 600; text-decoration:underline; cursor: pointer; margin: 10px;">Show</b>
     </div>
     <input type="password" placeholder="Password" name="password" id="Senha" onblur='this.placeholder="Password"' onfocus='this.placeholder=""' required/>
-    <br>
-    <div class="divErrorI" id="divErrorI">
-        <i style="font-size: 10px; color: red;">Erro! try again</i>
-    </div>
     <script>
       document.getElementById('clickB').addEventListener('click', function(){
         var passwordInput = document.getElementById("Senha");
@@ -213,7 +233,12 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
   
     </script>
       <br>
+      <br>
       <button type="submit" id="loglog" class="log--login" onclick="Hacker()">Sign in</button>
+      <br>
+      <div class="divErrorI" id="divErrorI">
+          <i style="font-size: 10px; color: red;">Erro! try again</i>
+      </div>
       <script>
         document.getElementById('loginHform').addEventListener('submit', function(event) {
     event.preventDefault();
