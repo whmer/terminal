@@ -147,6 +147,7 @@ border: none;}
 
 .divhomer{
     margin-left: 20px;
+    margin-top: 10px;
     display: none;
 }
 .ping{
@@ -156,12 +157,12 @@ border: none;}
     right: 0;
     background-color: #000;
     border-bottom: 1px solid #303030e1;
-    height: 5vh;
+    height: 7vh;
     display: flex;
     justify-content: left;
 }
 .pipi{
-    margin-top: 10px;
+    margin-top:10px;
     margin-left: 20px;
 }
 

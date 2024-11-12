@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script src="/socket.io/socket.io.js"></script>
   <title>Chan iana</title>
 </head>
 <style>
@@ -158,6 +159,17 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
           <img src="./image_search_1641509359235.jpg" class="admindreqxy"/>
         </div>
         <h4>chan iana :</h4>
+                    <p style="font-size: 12px; margin-top: 4px;" id="active-connections">Loading...</p>
+                    <script>
+                      const socket = io();
+              
+                      socket.on('activeConnections', (count) => {
+                          document.getElementById('active-connections').textContent = `Users: (${count} online)`;
+                          document.getElementById('active-connections2').textContent = `Users: (${count} online)`;
+                      });
+              
+                      socket.emit('getActiveConnections');
+                  </script>
         <i style="font-size: 14px; color: #807e7e;">
           "name": "chan iana",<br>
           "version": "1.0.0",<br>
@@ -370,6 +382,7 @@ enterbot.addEventListener('click', () =>{
     </div>
     <div class="pipi">
       <p class="pi">The internet signal is: <span id="signalStrength">Checking...</span></p>
+      <p style="font-size: 12px; margin-top: 4px;" id="active-connections2">Loading...</p>
     </div>
     <script>
       document.querySelector('.divhomer').addEventListener('click', function(){
