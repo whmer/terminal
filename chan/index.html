@@ -400,7 +400,8 @@ enterbot.addEventListener('click', () =>{
 <br>
 <br>
     <script>
-  const ws = new WebSocket('wss://wss-647c.onrender.com');
+//const ws = new WebSocket('wss://wss-647c.onrender.com');
+const ws = new WebSocket('ws://localhost:3000');
 const login = document.querySelector(".login");
 const chat = document.querySelector(".chat");
 const loginForm = login.querySelector(".login--form");
@@ -479,10 +480,20 @@ function displayReceivedMessage(sender, message) {
         const formattedDateTime = now.toLocaleDateString('en-US', options);
         const wer = `<strong style="font-size:12px; color:#807e7e;">${formattedDateTime}</strong>`
 
+  //const receivedMessageDiv = document.createElement('div');
+  //receivedMessageDiv.innerHTML = ` 
+  //<strong style="font-size:15px;">${sender} ${wer}<br></strong>${formatMessage(message)}<br>`;
+  //chatBox.appendChild(receivedMessageDiv);
+
   const receivedMessageDiv = document.createElement('div');
-  receivedMessageDiv.innerHTML = ` 
-  <strong style="font-size:15px;">${sender} ${wer}<br></strong>${formatMessage(message)}<br>`;
-  chatBox.appendChild(receivedMessageDiv);
+receivedMessageDiv.innerHTML = `
+  <strong style="font-size:15px;">
+    ${sender} ${wer}
+    ${sender === 'dreqxy' ? '<p style="display:inline; color:red; margin-left: 5px;">exitium</p>' : ''}
+    <br>
+  </strong>${formatMessage(message)}<br>`;
+chatBox.appendChild(receivedMessageDiv);
+
 }
 
 // image ---------------------------
