@@ -33,7 +33,6 @@ app.use('/server', (req, res, next) => {
     }
 }, express.static(path.join(__dirname, 'server')));
 
-
 function getUsers() {
     const filePath = path.join(__dirname, 'data', 'form-data.json');
     return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -41,10 +40,10 @@ function getUsers() {
 
 
 app.post('/chan', (req, res) => {
-    const { password } = req.body;
+    const { password, username } = req.body;
     const users = getUsers();
-    const user = users.find(u => u.password === password);
-    //const user = users.find(u => u.username === username && u.password === password);
+    const user_1 = users.find(u => u.password === password);
+    const user = users.find(u => u.username === username && u.password === password);
 
     if (user) {
         req.session.userId = user.id;
