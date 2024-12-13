@@ -1,10 +1,20 @@
 [
   {
-    "username": "",
+    "username": "charon",
     "password": "hatsune666",
+    "isLogin": "",
+    "number": "0000000000@s.whatsapp.net",
+    "id": 3512218,
+    "description": "hi sup ^.^"
+  },
+  {
+    "username": "dreqxy",
+    "password": "thepass8997",
     "isLogin": "",
     "number": "0000000000@s.whatsapp.net",
     "id": 3512218,
     "description": "hi sup ^.^"
   }
 ]
+
+
