@@ -156,9 +156,12 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
     <div class="uploadGfilerimage">
       <div class="hTYfierer-image">
         <div class="usernameDreqxy">
-          <img src="./image_search_1641509359235.jpg" class="admindreqxy"/>
+                      <video src="./4976752487626179722.webm" loop autoplay muted width="100%" class="admindreqxy">
+                <source src="./4976752487626179722.webm" type="video/mp3"/>
+                Erro! 
+            </video>
         </div>
-        <h4>iana chan :</h4>
+        <h4>whmer chat F - </h4>
                     <p style="font-size: 12px; margin-top: 4px;" id="active-connections">Loading...</p>
                     <script>
                       const socket = io();
@@ -171,7 +174,7 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
                       socket.emit('getActiveConnections');
                   </script>
         <i style="font-size: 14px; color: #807e7e;">
-          "name": "iana chan",<br>
+          "name": "sasame chan",<br>
           "version": "1.0.0",<br>
           "description": "call when you fall apart",<br>
           "author": "<i id="null"></i>",<br>
@@ -422,8 +425,8 @@ enterbot.addEventListener('click', () =>{
 <br>
 <br>
     <script>
-const ws = new WebSocket('wss://wss-647c.onrender.com');
-//const ws = new WebSocket('ws://localhost:3000');
+//const ws = new WebSocket('wss://wss-647c.onrender.com');
+const ws = new WebSocket('ws://localhost:3000');
 const login = document.querySelector(".login");
 const chat = document.querySelector(".chat");
 const loginForm = login.querySelector(".login--form");
@@ -492,12 +495,12 @@ ws.onclose = (event) => {
 };
 
 function displayReceivedMessage(sender, message) {
-  const now = new Date();
+ const now = new Date();
         const options = {
             hour: '2-digit',
             minute: '2-digit',
             //second: '2-digit',
-            hour12 : false
+            //hour12 : false
         };
         const formattedDateTime = now.toLocaleDateString('en-US', options);
         const wer = `<strong style="font-size:12px; margin-top: -20px; position: relative; color:#807e7e;">${formattedDateTime}</strong>`
@@ -511,7 +514,7 @@ function displayReceivedMessage(sender, message) {
 receivedMessageDiv.innerHTML = `
   <strong style="font-size:15px;">
     ${sender} 
-    ${sender === 'dreqxy' ? '<p style="display:inline; color:red; margin-left: 5px;">exitium <img src="./STK-20241020-WA0003.webp" class="iop" width="30"/>  </p>' : ''} ${wer}
+    ${sender === 'dreqxy'||'haze'||'choonie'||'yuyu-sam'||'charon'||'müleque'||'neko-sam'||'kym-sam'||'zypki'||'defalt' ? '<p style="display:inline; color:red; margin-left: 5px;">exitium </p>' : ''} ${wer}
     <br>
   </strong>${formatMessage(message)}<br>`;
 chatBox.appendChild(receivedMessageDiv);
