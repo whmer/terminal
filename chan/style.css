@@ -76,7 +76,19 @@ body{
 
 }
 
-
+.nameclickcommands{
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    z-index: 20;
+    background: #000000fa;
+    color: #fff;
+    padding: 4px 30px;
+    padding-top: 2px;
+    border: 1px solid #504f4fce;
+    cursor: pointer;
+    display: none;
+}
 
 .commands-whmer{
     position: fixed;
@@ -91,8 +103,16 @@ body{
     z-index: 0;
 }
 
+.viewnae{
+    font-family: var(--sam);
+    font-weight: 600;
+}
+
 @media(max-width:999px){
     .commands-whmer{
+        right: -450px;
+    }
+    .nameclickcommands{
         display: none;
     }
 }

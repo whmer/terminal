@@ -140,10 +140,13 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
   }
   .usersLogin{display:none;}
 </style>
-<body>
+<body><br><br><br>
+  <div class="nameclickcommands">
+    <strong class="viewnae">view</strong>
+  </div>
   <div class="whmerflexdivs">
-  <div class="commands-whmer">
-    <br><br><br>
+    <div class="commands-whmer">
+      <br><br><br>
     <div class="arceneanime">
       <div class="userexitium">
         <img src="./e834ebf2-8d24-4414-bdda-abacd7bbc598.webp" class="zippo" width="10"/>
@@ -189,6 +192,17 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
         })
       </script>
     </div>
+    <div class="steamvidclick" id="steamvidclickid">
+      <video src="https://s3t3d2y8.afcdn.net/library/319620/9e2d0f5642ee218f35f58d5c4622db2454b08e1f.mp" loop autoplay muted width="100%">
+          <source src="https://s3t3d2y8.afcdn.net/library/319620/9e2d0f5642ee218f35f58d5c4622db2454b08e1f.mp" type="video/mp3"/>
+          Erro! 
+      </video>
+      <script>
+          document.getElementById('steamvidclickid').addEventListener('click', function(){
+              window.location.href = 'https://steam.aeonsecho.com/1/?utm_source=exoclick&utm_medium=banner&utm_campaign=aesteamlaunch&utm_content=t2hentaistatbannerae&tag=opdNTdHZbHNbZHNNQ7Qmbp7JprLbXTS0WXXVUUulddLKqeqV000rpp7nTupldK6V0rqa6ZrLba3UU0200UOopsloqodK6Z0rpXSuldM6V0rpnV12U0UzVXZ58W0R3WVV2T0Tz0SzVzz3Wzus2m011s1mplm0rz1lpqqzrsl4un4nsqtdK4xDr3BF1uA2fceof3TXTyqmltlc6V0rpXSuldK6V1M9ltllrpXTWT002TVzzOc6V0rpXSuldK6V0rpXSumdrxpnpNXbVtbbRRNprdxRvtnXZRbNZZpO4Ps-';
+          })
+      </script>
+  </div>
   </div>
   <div class="usersLogin">
     <div class="iamgehatsunee">
@@ -374,6 +388,7 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
           document.getElementById('chat-box').style.display = 'block';
           document.querySelector(".login").style.display = "none";
           document.querySelector('.usersLogin').style.display = "block";
+          document.querySelector('.nameclickcommands').style.display = "block";
           document.querySelector('.color-formu').style.display = "block";
           document.querySelector('.commands-whmer').style.display = "block";
             //window.location.replace('../server/'); 
@@ -408,17 +423,6 @@ body{font-family: var(--sam);font-size: 20px;background: #000;color: #fff;}
       <br><br>
       </form>
       <br><br>
-      <div class="steamvidclick" id="steamvidclickid">
-        <video src="https://s3t3d2y8.afcdn.net/library/319620/9e2d0f5642ee218f35f58d5c4622db2454b08e1f.mp4" loop autoplay muted width="100%">
-            <source src="https://s3t3d2y8.afcdn.net/library/319620/9e2d0f5642ee218f35f58d5c4622db2454b08e1f.mp4" type="video/mp3"/>
-            Erro! 
-        </video>
-        <script>
-            document.getElementById('steamvidclickid').addEventListener('click', function(){
-                window.location.href = 'https://steam.aeonsecho.com/1/?utm_source=exoclick&utm_medium=banner&utm_campaign=aesteamlaunch&utm_content=t2hentaistatbannerae&tag=opdNTdHZbHNbZHNNQ7Qmbp7JprLbXTS0WXXVUUulddLKqeqV000rpp7nTupldK6V0rqa6ZrLba3UU0200UOopsloqodK6Z0rpXSuldM6V0rpnV12U0UzVXZ58W0R3WVV2T0Tz0SzVzz3Wzus2m011s1mplm0rz1lpqqzrsl4un4nsqtdK4xDr3BF1uA2fceof3TXTyqmltlc6V0rpXSuldK6V1M9ltllrpXTWT002TVzzOc6V0rpXSuldK6V0rpXSumdrxpnpNXbVtbbRRNprdxRvtnXZRbNZZpO4Ps-';
-            })
-        </script>
-    </div>
     </div>
   </div>
   <section class="chat">
@@ -885,5 +889,18 @@ messageForm.addEventListener("submit", sendMessage )
         })
       </script>
     </div>
+    <script>
+      document.querySelector('.nameclickcommands').addEventListener('click', function(){
+        var rewhmer = document.querySelector('.commands-whmer');
+        const viewnae = document.querySelector('.viewnae');
+        if(rewhmer.style.right == '-450px' || rewhmer.style.right == ''){
+          viewnae.innerText = "close"
+        rewhmer.style.right = "0";
+        }else{
+          rewhmer.style.right = "-450px";
+          viewnae.innerText = "view"
+          }
+      })
+    </script>
 </body>
 </html>
