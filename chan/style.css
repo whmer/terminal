@@ -3,10 +3,121 @@
     padding:0;
     box-sizing: border-box;
 }
+
+@font-face{
+    src: url('./DeezerProduct-Extrabold.ff5d8428e4fe802f91d53a06857feb145b0a435d.woff2');
+    font-family: Exitium;
+    font-style: normal;
+}
+
 :root{
     --sam:"SF Pro Text", "SF Pro Icons", system, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande", "Ubuntu", "Cantarell", "Fira Sans", sans-serif;
     --color-whats: #a333e4;
     --hazap:hazap;
+    --whmer:Exitium;
+}
+
+body{
+    background: #202020;
+}
+
+.arceneanime{
+    background-color: rgb(22, 22, 22);
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 95%;
+    padding: 5px;
+    border: 1px solid #ffffff1f;
+}
+
+.typedell{
+    background-color: rgb(22, 22, 22);
+    width: 95%;
+    margin: 0 auto 10px;
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #ffffff1f;
+}
+
+.backggdfd{
+    padding: 5px;
+    background: #00000050;
+    border-radius: 5px;
+    width: 100%;
+}
+.imgnamer{
+    margin-top: 12px;
+    margin-left: 10px;
+}
+
+.bonequinha{
+    display: flex;
+    margin-top: -10px;
+}
+.nameexitiumzip{
+    margin-top: 20px;
+    margin-left: 5px;
+    padding-bottom: 0px;
+}
+.rwefwefwer{
+    background: none;
+    border: none;
+    width: 35px;
+    padding: 0px;
+}
+.zippo{
+    border: none;
+    width: 90px;
+    background: none;
+    border-radius: 100%;
+}
+.whmerflexdivs{
+
+}
+
+
+
+.commands-whmer{
+    position: fixed;
+    background-color: #1d1d1de0;
+    width: 370px;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 0 0 rgba(0, 0, 0, .25);
+    display:none;
+    z-index: 0;
+}
+
+@media(max-width:999px){
+    .commands-whmer{
+        display: none;
+    }
+}
+.bitu{
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    width: 100%;
+    cursor: pointer;
+    text-align: left;
+}
+.del{
+    cursor: pointer;
+    background-color: rgb(22, 22, 22);
+    width: 95%;
+    margin: 0 auto 10px;
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #ffffff1f;
+}
+
+.strong{
+    font-family: var(--whmer);
+    font-size: 30px;
 }
 
 

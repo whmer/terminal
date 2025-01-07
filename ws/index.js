@@ -28,11 +28,11 @@ const server = http.createServer((req, res) => {
     }
 });
 
-
 const wss = new WebSocket.Server({ server });
 
+
 wss.on('connection', (ws) => {
-    console.log('[-] Novo usuário conectado !');
+    console.log(`[-] usuário  conectado !`);
 
     activeConnections++;
 
@@ -53,10 +53,13 @@ wss.on('connection', (ws) => {
         wss.clients.forEach((client) => {
             if (client !== ws && client.readyState === WebSocket.OPEN) {
                 client.send(message);
+                //client.send(name);
+                //console.log(name);
             }
         });
     });
 });
+
 
 server.listen(3000, () => {
     console.log('\nServidor WebSocket está ouvindo em: ws://localhost:3000\n');
